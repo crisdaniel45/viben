@@ -1,10 +1,777 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="es">
+<head>
+    <!-- Metadatos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inmobiliaria Viben</title>
+    
+    <!-- Estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Script moderno (sin jQuery) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navbar = document.querySelector('.navbar');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+    </script>
+</head>
+        
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Inmobiliaria Viben</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome para íconos -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            :root {
+                --primary-purple: #6a0dad;
+                --dark-purple: #4b0082;
+                --light-purple: #9c27b0;
+                --black: #121212;
+                --dark-gray: #1e1e1e;
+                --light-gray: #f8f9fa;
+                --white: #ffffff;
+            }
+            
+   body {
+    background-color: #1e1e1e; /* Gris oscuro */
+    color: #ffffff; /* Texto en blanco */
+}
+
+
+
+            
+    /* Agrega esto en tu sección de estilos */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(8px);
+    transition: background-color 0.3s ease;
+}
+
+/* Opcional: Hacer la barra más sólida al hacer scroll */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+
+            
+                .navbar-nav .nav-link {
+                 color: aqua !important;
+     }
+
+            
+            .nav-link:hover {
+                color: var(--light-purple) !important;
+            }
+            
+            .hero-section {
+                background: linear-gradient(rgba(30, 0, 50, 0.85), rgba(20, 0, 35, 0.85)), 
+                            url('https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481953341_603935265973806_6164686850184203523_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEDOKW7jEGwC1YLaPyDDnB73OEvjWU4cDDc4S-NZThwMPFDplOF85fWXrHdPQybUXjJLDnpZJvW0pO7X8LFG9Wi&_nc_ohc=irCpBOAFIdsQ7kNvgFiROdc&_nc_oc=AdnFE3wtAgk_ZIKmPYGl4fZkrn5LddiNTHb2Tuf-YxQK_E7d-ugLFlmGeylUmvIL0M4&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=fwp2ZOyRcVhdjpCRri5cIQ&oh=00_AYFrKq9sHTrFuLgLSMktpTSy-e2qKzlyLy-Wn_4pjVgQ5Q&oe=67F1DA25');
+                background-size: cover;
+                background-position: center;
+                color: white;
+                padding: 100px 0;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .btn-primary {
+                background-color: var(--primary-purple);
+                border-color: var(--primary-purple);
+            }
+            
+            .btn-primary:hover {
+                background-color: var(--dark-purple);
+                border-color: var(--dark-purple);
+            }
+            
+            .btn-outline-primary {
+                color: var(--primary-purple);
+                border-color: var(--primary-purple);
+            }
+            
+            .btn-outline-primary:hover {
+                background-color: var(--primary-purple);
+                border-color: var(--primary-purple);
+                color: white;
+            }
+            
+            .property-card {
+                transition: transform 0.3s;
+                margin-bottom: 20px;
+                border: none;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .property-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(106, 13, 173, 0.2);
+            }
+            
+            .card-title {
+                color: var(--primary-purple);
+                font-weight: 600;
+            }
+            
+            .feature-icon {
+                font-size: 2.5rem;
+                color: var(--primary-purple);
+                margin-bottom: 15px;
+            }
+            
+            footer {
+                background-color: var(--black);
+                color: var(--white);
+            }
+            
+            /* Estilos para las nuevas secciones */
+            .testimonial-card {
+    background: linear-gradient(135deg, #6a0dad, #4b0082);
+    color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: none;
+}
+.testimonial-card img {
+    border: 3px solid var(--light-purple);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+            
+            .tourist-spot {
+                position: relative;
+                border-radius: 10px;
+                overflow: hidden;
+                margin-bottom: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .tourist-spot img {
+                transition: transform 0.5s;
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+            }
+            
+            .tourist-spot:hover img {
+                transform: scale(1.1);
+            }
+            
+            .tourist-info {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(transparent, rgba(0,0,0,0.8));
+                color: white;
+                padding: 20px;
+            }
+            
+            .whatsapp-btn {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 99;
+                background: #25D366;
+                color: white;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                text-align: center;
+                font-size: 30px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s;
+            }
+            
+            .whatsapp-btn:hover {
+                background: #128C7E;
+                transform: scale(1.1);
+                color: white;
+            }
+            
+            /* Estilos para la sección de historia */
+            .about-section {
+    background-color: var(--black); /* Fondo negro */
+    color: var(--white); /* Texto en blanco */
+}
+
+            
+            .about-img {
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                border: 3px solid var(--primary-purple);
+            }
+            
+            .mission-vision {
+                background: var(--dark-purple);
+                color: white;
+                padding: 30px;
+                border-radius: 10px;
+                margin-top: 30px;
+                height: 100%;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            }
+            
+            .section-title {
+                color: var(--primary-purple);
+                position: relative;
+                padding-bottom: 15px;
+                margin-bottom: 30px;
+                font-weight: 700;
+            }
+            
+            .section-title:after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 80px;
+                height: 4px;
+                background-color: var(--light-purple);
+                border-radius: 2px;
+            }
+            
+            .text-purple {
+                color: var(--primary-purple);
+            }
+            
+            .bg-purple-light {
+                background-color: rgba(106, 13, 173, 0.1);
+            }
+            
+            .badge-primary {
+                background-color: var(--primary-purple);
+            }
+            
+            .social-icons a {
+                color: var(--white);
+                font-size: 1.2rem;
+                margin-right: 15px;
+                transition: all 0.3s;
+            }
+            
+            .social-icons a:hover {
+                color: var(--light-purple);
+                transform: translateY(-3px);
+            }
+            
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                background-color: var(--primary-purple);
+                border-radius: 50%;
+                padding: 15px;
+            }
+            #servicios {
+    background-color: #1e1e1e !important; /* Gris oscuro */
+    color: white !important; /* Texto en blanco para mejor contraste */
+}
+/* Nuevos estilos para el fondo gris oscuro */
+  .conoce-section {
+    background-color: #2d2d2d; /* Gris oscuro */
+    color: #ffffff; /* Texto blanco para contraste */
+    border-radius: 15px;
+    margin: 40px 0;
+    padding: 40px 0;
+  }
+
+  .video-card {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    background-color: #1e1e1e; /* Fondo más oscuro para el contenedor del video */
+  }
+
+  .video-footer {
+    background: linear-gradient(to right, #121212, #252525);
+    border-top: 1px solid #333;
+  }
+
+  .video-title {
+    color: #9c27b0; /* Morado claro para títulos */
+    font-weight: 600;
+  }
+
+  .section-title {
+    color: #ffffff; /* Blanco para el título principal */
+  }
+
+  .section-title:after {
+    background-color: #6a0dad; /* Morado para la línea decorativa */
+  }
+
+  /* Ajustes para los botones */
+  .btn-outline-light {
+    border-color: #555;
+    color: #ddd;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .btn-primary {
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+  }
+
+  .btn-primary:hover {
+    background-color: #4b0082;
+    border-color: #4b0082;
+  }
+
+        </style>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        <!-- Barra de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(8px);">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/477771694_584196567947676_3827679411326397593_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGEX_KwDebZfW58rqquNAgZB_gKCb86kBUH-AoJvzqQFfsgb-AuMO1lYreqyHnkIJOwPkwhW3oKchlHs1C3Zm66&_nc_ohc=_803TQMSjRgQ7kNvgHRVArD&_nc_oc=Adkg0abmnD03Rl_d0uB0L_aVr4UAYLLFUu-z_qu3apiV1Q-7VdZW1S33Q4mlDjlD4Xc&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=gMZyjLdfPhZSFO3mTWLKXA&oh=00_AYH_Jt1ZqpL2HPNaXc-vBuLkqiGWhMtJYUdmGXn4vi_z0Q&oe=67F1D050" alt="" height="30" class="d-inline-block align-top me-2">
+            VIBEN
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#inicio"><i class="fas fa-home me-1"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#propiedades"><i class="fas fa-building me-1"></i> Propiedades</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#servicios"><i class="fas fa-handshake me-1"></i> Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto"><i class="fas fa-phone me-1"></i> Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+        
+
+        <!-- Sección de Inicio/Historia de la empresa -->
+        <section id="inicio" class="about-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="section-title">Nuestra Historia</h2>
+                        <p class="lead text-purple">    VIBEN nació en 2018 con la visión de transformar el mercado inmobiliario en Quinua y sus alrededores.</p>
+                        <p>Fundada por un equipo de profesionales apasionados por el desarrollo urbano sostenible, comenzamos como una pequeña oficina con grandes sueños. Hoy, después de más de 5 años de trabajo constante, nos hemos convertido en líderes del sector, ayudando a cientos de familias a encontrar su hogar ideal.</p>
+                        <p>Nuestro compromiso va más allá de la compra y venta de propiedades. Creemos en crear comunidades vibrantes y espacios que mejoren la calidad de vida de las personas.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481953341_603935265973806_6164686850184203523_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeEDOKW7jEGwC1YLaPyDDnB73OEvjWU4cDDc4S-NZThwMPFDplOF85fWXrHdPQybUXjJLDnpZJvW0pO7X8LFG9Wi&_nc_ohc=irCpBOAFIdsQ7kNvgFiROdc&_nc_oc=AdnFE3wtAgk_ZIKmPYGl4fZkrn5LddiNTHb2Tuf-YxQK_E7d-ugLFlmGeylUmvIL0M4&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=fwp2ZOyRcVhdjpCRri5cIQ&oh=00_AYFrKq9sHTrFuLgLSMktpTSy-e2qKzlyLy-Wn_4pjVgQ5Q&oe=67F1DA25" alt="Equipo VIBEN" class="img-fluid about-img">
+                    </div>
+                </div>
+             <!-- Sección Conócenos -->
+<section class="conoce-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Columna del Video -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="video-card">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/SIFM6FrrMO0" 
+                    title="Video institucional VIBEN" 
+                    frameborder="0" 
+                    allowfullscreen>
+            </iframe>
+          </div>
+          <div class="video-footer p-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="video-time text-light"></span>
+              <div class="video-social">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Columna del Texto -->
+      <div class="col-lg-6 text-light"> <!-- Añadida clase text-light -->
+        <h2 class="section-title mb-4">Conócenos</h2>
+        <h3 class="video-title mb-3">VIBEN GROUP 2023 | Transformando el mercado inmobiliario desde asdawseawds
+        asdasdasdasdasdasdasdasdasdadadasda
+        asdasasda</h3>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</section>
+      
+     
+                
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <div class="mission-vision">
+                            <h3><i class="fas fa-bullseye me-2"></i>Nuestra Misión</h3>
+                            <p>Ofrecer soluciones inmobiliarias integrales con honestidad, transparencia y profesionalismo, superando las expectativas de nuestros clientes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mission-vision">
+                            <h3><i class="fas fa-eye me-2"></i>Nuestra Visión</h3>
+                            <p>Ser reconocidos como la inmobiliaria líder en la región, destacando por nuestra innovación, servicio personalizado y contribución al desarrollo sostenible.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <div class="text-center">
+                            <h3 class="section-title">¿Por qué elegirnos?</h3>
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-medal"></i>
+                                    </div>
+                                    <h5>Experiencia</h5>
+                                    <p>Más de 5 años en el mercado inmobiliario local</p>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h5>Clientes Satisfechos</h5>
+                                    <p>+100 transacciones exitosas</p>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-hand-holding-heart"></i>
+                                    </div>
+                                    <h5>Compromiso Social</h5>
+                                    <p>Iniciativas para el desarrollo comunitario</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Propiedades destacadas -->
+        <section id="propiedades" class="container mb-5 py-5">
+            <h2 class="section-title text-center">Propiedades Destacadas</h2>
+            <p class="text-center mb-5">Descubre nuestras mejores propiedades seleccionadas para ti</p>
+            
+            <div class="row">
+                <!-- Propiedad 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card property-card h-100">
+                        <div class="badge bg-danger position-absolute" style="top: 10px; right: 10px;">Venta</div>
+                        <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481082564_602478766119456_5204446265327754001_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEw0iPCffEpWxjCHg0yf50FDJj8BSFT9sgMmPwFIVP2yKLh21wAudQg2VqsIS4v5Jm4ikm8YvBn1aGgR8l0FPiV&_nc_ohc=TtI4LfV0xOwQ7kNvgGgCg1T&_nc_oc=Adm769pLsCfiegR3QKV29ve6fohcZr8KOo9T9vH7mFE_Iab0vLbjjBKG7MEpYt0foAk&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=hmpQckdMJiUwTOeLytueCA&oh=00_AYG8T-EZhrh1B0d6boJ9-_1i7aUAGBA0kXsn3IFNDC0ilA&oe=67F1E1D6" class="card-img-top" alt="Casa moderna">
+                        <div class="card-body">
+                            <h5 class="card-title">Eco Wari Resort</h5>
+                            <p class="text-purple fw-bold">$10,000</p>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-muted me-2"></i>Quinua
+                            </p>
+                            <hr>
+                            <div class="d-flex justify-content-between text-center">
+                                <div>
+                                    <i class="fas fa-tint text-muted"></i>
+                                    <p class="mb-0">Agua</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-bolt text-muted"></i>
+                                    <p class="mb-0">Electricidad</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-ruler-combined text-muted"></i>
+                                    <p class="mb-0">1000 m²</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="https://wa.link/qug8g6" class="btn btn-primary w-100" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i> Consultar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Propiedad 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card property-card h-100">
+                        <div class="badge bg-success position-absolute" style="top: 10px; right: 10px;">Venta</div>
+                        <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481241102_600240789676587_9037066359255140753_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGp-9H8yWk0rbVtiluWodvTK_gH9zxbAKYr-Af3PFsApuO6_uwEC2xHFlnptb0rG7S55MC2-Z3buzT_NicFvCER&_nc_ohc=VXmI3C18WnEQ7kNvgEZad3R&_nc_oc=AdkWBsNj1YnvUVgz2Z58CkE_P9JxP7iZY2U8H_3RlVIWutknbOC4Amf-nKumQrD9jT8&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=VjbvIQzMvfFY2SBJwcJJXg&oh=00_AYFqaIBvVTjkrXvSjNJscsNvvdJfuzPOISCapZmCpU8kSw&oe=67F1FA64" class="card-img-top" alt="Apartamento">
+                        <div class="card-body">
+                            <h5 class="card-title">Quinua</h5>
+                            <p class="text-purple fw-bold">$10,000</p>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-muted me-2"></i>Centro, Ciudad
+                            </p>
+                            <hr>
+                            <div class="d-flex justify-content-between text-center">
+                                <div>
+                                    <i class="fas fa-tint text-muted"></i>
+                                    <p class="mb-0">Agua</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-bolt text-muted"></i>
+                                    <p class="mb-0">Electricidad</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-ruler-combined text-muted"></i>
+                                    <p class="mb-0">1000 m²</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-primary w-100">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Propiedad 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card property-card h-100">
+                        <div class="badge bg-warning text-dark position-absolute" style="top: 10px; right: 10px;">Pre-venta</div>
+                        <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481964255_600483432985656_7797432559172539188_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJ41a_EGmDtvDzoCG2Eir63u3LrUGd4Ize7cutQZ3gjMfaZk3deAs31WSwHzqPpL7i1aGHxuCrMepGGoHQ5FsK&_nc_ohc=gqMWKDuwT88Q7kNvgGv2DMo&_nc_oc=AdnBJ_WK68xAzB2pC8g80bfe0h4G7UnYTqzEetRzHsPWiIDcd_bZgMdvQbtsjDmqGWI&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=Qq_KE9oLcGGVhdGASegoPg&oh=00_AYHvuYTovl36jAfFgXiq6P3UjYQf4dib7XEEqAyDitcpaQ&oe=67F1F81A" class="card-img-top" alt="Terreno">
+                        <div class="card-body">
+                            <h5 class="card-title">Quinua</h5>
+                            <p class="text-purple fw-bold">$10,000</p>
+                            <p class="card-text">
+                                <i class="fas fa-map-marker-alt text-muted me-2"></i>Quinua
+                            </p>
+                            <hr>
+                            <div class="d-flex justify-content-between text-center">
+                                <div>
+                                    <i class="fas fa-vector-square text-muted"></i>
+                                    <p class="mb-0">1,200 m²</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-tint text-muted"></i>
+                                    <p class="mb-0">Agua</p>
+                                </div>
+                                <div>
+                                    <i class="fas fa-bolt text-muted"></i>
+                                    <p class="mb-0">Electricidad</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-primary w-100">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary px-4">Ver más propiedades</a>
+            </div>
+            
+            <!-- Sección de Reseñas de Clientes -->
+            <section class="mt-5 py-5">
+                <h2 class="section-title text-center">Lo que dicen nuestros clientes</h2>
+                <p class="text-center mb-5">Testimonios de clientes satisfechos con nuestros servicios</p>
+                
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- Reseña 1 -->
+                        <div class="carousel-item active">
+                            <div class="testimonial-card text-center">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle mb-3" width="100" alt="Cliente">
+                                <h5>María Gómez</h5>
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="mb-0">"Excelente servicio, encontré mi casa soñada gracias a VIBEN. El equipo fue muy profesional y atento en todo momento."</p>
+                            </div>
+                        </div>
+                        <!-- Reseña 2 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" class="rounded-circle mb-3" width="100" alt="Cliente">
+                                <h5>Carlos Rodríguez</h5>
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star-half-alt text-warning"></i>
+                                </div>
+                                <p class="mb-0">"Vendí mi propiedad en tiempo récord y al mejor precio. Los recomiendo 100%, son expertos en el mercado inmobiliario."</p>
+                            </div>
+                        </div>
+                        <!-- Reseña 3 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-card text-center">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="rounded-circle mb-3" width="100" alt="Cliente">
+                                <h5>Laura Fernández</h5>
+                                <div class="mb-3">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                </div>
+                                <p class="mb-0">"La asesoría legal que brindan es invaluable. Me guiaron en todo el proceso de compra sin problemas. ¡Gracias VIBEN!"</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </section>
+            
+            <!-- Sección de Lugares Turísticos -->
+            <section class="mt-5 py-5">
+                <h2 class="section-title text-center">Lugares turísticos cercanos</h2>
+                <p class="text-center mb-5">Descubre los atractivos cerca de nuestras propiedades</p>
+                
+                <div class="row">
+                    <!-- Lugar 1 -->
+                    <div class="col-md-4">
+                        <div class="tourist-spot">
+                            <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481082564_602478766119456_5204446265327754001_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeEw0iPCffEpWxjCHg0yf50FDJj8BSFT9sgMmPwFIVP2yKLh21wAudQg2VqsIS4v5Jm4ikm8YvBn1aGgR8l0FPiV&_nc_ohc=TtI4LfV0xOwQ7kNvgGgCg1T&_nc_oc=Adm769pLsCfiegR3QKV29ve6fohcZr8KOo9T9vH7mFE_Iab0vLbjjBKG7MEpYt0foAk&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=hmpQckdMJiUwTOeLytueCA&oh=00_AYG8T-EZhrh1B0d6boJ9-_1i7aUAGBA0kXsn3IFNDC0ilA&oe=67F1E1D6" class="img-fluid" alt="Lugar turístico">
+                            <div class="tourist-info">
+                                <h5>Eco Wari Resort</h5>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i> A 5 km de la propiedad</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lugar 2 -->
+                    <div class="col-md-4">
+                        <div class="tourist-spot">
+                            <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481241102_600240789676587_9037066359255140753_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGp-9H8yWk0rbVtiluWodvTK_gH9zxbAKYr-Af3PFsApuO6_uwEC2xHFlnptb0rG7S55MC2-Z3buzT_NicFvCER&_nc_ohc=VXmI3C18WnEQ7kNvgEZad3R&_nc_oc=AdkWBsNj1YnvUVgz2Z58CkE_P9JxP7iZY2U8H_3RlVIWutknbOC4Amf-nKumQrD9jT8&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=VjbvIQzMvfFY2SBJwcJJXg&oh=00_AYFqaIBvVTjkrXvSjNJscsNvvdJfuzPOISCapZmCpU8kSw&oe=67F1FA64" class="img-fluid" alt="Lugar turístico">
+                            <div class="tourist-info">
+                                <h5>Centro Histórico</h5>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i> A 10 minutos caminando</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lugar 3 -->
+                    <div class="col-md-4">
+                        <div class="tourist-spot">
+                            <img src="https://scontent.fjau2-1.fna.fbcdn.net/v/t39.30808-6/481964255_600483432985656_7797432559172539188_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHJ41a_EGmDtvDzoCG2Eir63u3LrUGd4Ize7cutQZ3gjMfaZk3deAs31WSwHzqPpL7i1aGHxuCrMepGGoHQ5FsK&_nc_ohc=gqMWKDuwT88Q7kNvgGv2DMo&_nc_oc=AdnBJ_WK68xAzB2pC8g80bfe0h4G7UnYTqzEetRzHsPWiIDcd_bZgMdvQbtsjDmqGWI&_nc_zt=23&_nc_ht=scontent.fjau2-1.fna&_nc_gid=Qq_KE9oLcGGVhdGASegoPg&oh=00_AYHvuYTovl36jAfFgXiq6P3UjYQf4dib7XEEqAyDitcpaQ&oe=67F1F81A" class="img-fluid" alt="Lugar turístico">                            <div class="tourist-info">
+                                <h5>Parque Natural</h5>
+                                <p class="mb-0"><i class="fas fa-map-marker-alt me-1"></i> A 15 km de la propiedad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Nuestros servicios -->
+        <section id="servicios" class="bg-light py-5">
+            <div class="container">
+                <h2 class="text-center mb-5">Nuestros Servicios</h2>
+                
+                <div class="row g-4">
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4>Compra de Propiedades</h4>
+                        <p>Te ayudamos a encontrar la casa de tus sueños con nuestro amplio catálogo y asesoría especializada.</p>
+                    </div>
+                    
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4>Venta de Propiedades</h4>
+                        <p>Maximiza el valor de tu propiedad con nuestra red de clientes y estrategias de marketing.</p>
+                    </div>
+                    
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-signature"></i>
+                        </div>
+                        <h4>Asesoría Legal</h4>
+                        <p>Nuestros abogados especializados te acompañan en todo el proceso de compra/venta.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contacto" class="text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5>Inmobiliaria VIBEN</h5>
+                        <p>Líderes en el mercado inmobiliario con más de 5 años de experiencia.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/VibenGroup" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4 mb-md-0">
+                        <h5>Contacto</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-map-marker-alt me-2"></i> jiron Sol N° 361 Ayacucho-Perú</li>
+                            <li><i class="fas fa-phone me-2"></i>929307776</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <h5>Horario</h5>
+                        <ul class="list-unstyled">
+                            <li>Lunes - Viernes: 9:00 AM - 6:00 PM</li>
+                            <li>Sábado: 9:00 AM - 2:00 PM</li>
+                            
+                        </ul>
+                    </div>
+                </div>
+                
+                <hr class="my-4">
+                
+                <div class="text-center">
+                    <p class="mb-0">&copy; 2025 Inmobiliaria VIBEN. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Botón de WhatsApp -->
+        <a href="https://wa.me/51987654321?text=Hola%20VIBEN,%20me%20interesa%20una%20propiedad" class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
